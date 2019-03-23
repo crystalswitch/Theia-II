@@ -1,0 +1,22 @@
+--- Bu dosya rqt_console ve roslaunch hakkında bilgiler içermektedir ---
+
+--rqt_console nedir
+rqt_console, rosout topicine pushlanan mesajları gösteren pakettir. Burda hataları ve çalışan nodeleri görebiliriz.
+
+--Kurulum için link
+http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch
+
+--Nasıl açılır?
+roscore acıkken 
+$ rosrun rqt_console rqt_console
+$ rosrun rqt_logger_level rqt_logger_level   kodlarını sırasıyla girerek iki ekrana da ulaşabilirsiniz.
+
+logger level penceresinden oluşabilecek hataları derecelendirebilirsiniz.
+
+--roslaunch nedir?
+roslaunch bir dizi node'u bir launch dosyası sayesinde sırayla baslatmaya yarayan bir keyworddur.
+
+$ roslaunch [package] [filename.launch]  
+kemik yapısıyla kullanabilirsiniz.
+
+roslaunch'ın kullanımı hakkında bilgi sahibi olmak isterseniz: http://wiki.ros.org/ROS/Tutorials/UsingRqtconsoleRoslaunch

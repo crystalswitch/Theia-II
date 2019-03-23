@@ -1,0 +1,43 @@
+--- Bu dosya ROS Services hakkında bilgiler içermektedir ---
+
+
+- ROS Services nedir?
+Services, messages gibi nodeler arasında iletişim kurmayı sağlayan, ayrıca nodelere request ve response yollamalarına da olanak sağlamaktadır.  
+
+$ rosservice list     yazarak aktif nodelerin bize sundugu servisleri görebiliriz. 
+
+---- ek bilgiler -----------------------------------------------
+rosservice list         print information about active services
+rosservice call         call the service with the provided args
+rosservice type         print service type
+rosservice find         find services by service type
+rosservice uri          print service ROSRPC uri
+----------------------------------------------------------------
+
+- Servisin tipi nasıl öğrenilir?
+
+rosservice type [service]   kodu ile öğrenebilirsiniz. Eğer std_srvs/Empty yazarsa bu servis herhangi bir input almuyordur
+
+- Servis nasıl açılır?
+
+rosservice call [service] [args]
+Örnek vermek gerekirse:
+$ rosservice call /clear  (input almıyor)
+
+- rosparam nedir?
+rosparam size datanızı ROS Parameter serverinde tutmanızı saglar. 
+
+- rosparam commandleri
+rosparam set            set parameter
+rosparam get            get parameter
+rosparam load           load parameters from file
+rosparam dump           dump parameters to file
+rosparam delete         delete parameter
+rosparam list           list parameter names
+
+- Kayıtlı bilgileri nasıl görürüm?
+Aktif bir nodun bilgilerini görebilmek için:
+
+$ rosparam list  yazın.
+
+Detaylı bilgi için: http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams

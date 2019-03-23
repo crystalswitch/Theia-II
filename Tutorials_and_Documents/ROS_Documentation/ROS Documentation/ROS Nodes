@@ -1,0 +1,41 @@
+--- Bu dosya ROS nodelerin ne olduğu ve nasıl kullanıldığını açıklamaktadır --- 
+
+- Node nedir?
+Node, içinde yazılı olan işlemleri yapabilen dosyadır. Nodeler ile topicten mesaj göderebilir ya da topicten mesaj alabilirsiniz. Nodeler ROS client library'i kullanarak başka nodeler ile iletişim kurabilirler.(ROS client libraryler hakkında :http://wiki.ros.org/Client%20Libraries). 
+
+
+- Bir node'yi nasıl çalıştırırsınız?
+
+1) İlk önce roscore'u calıştırınız 
+
+    Bunun için terminale alttaki kodu girin
+     
+     $ roscore
+
+2) Daha sonra nodeleri çalıştırmaya yarayan keywordumuz 'rosrun'ı kullanınız
+
+     $ rosrun [package_name] [node_name]
+
+     Bu aşamada birçok hata ile karşı karşıya kalabilirsiniz. Bu aşamada googlelama yetenekleriniz devreye girmeli :).
+
+- Açık olan nodeleri nasıl görebiliriz?
+
+    Terminale; 
+
+     $ rosnode list   yazarak görebilirsiniz.
+
+- Bir node hakkında bilgiye nereden ulaşabiliriz?
+
+    Terminale;
+
+     $ rosnode info /'node ismi'   kullanılabilir. Örnek vermek gerekirse:
+
+     $ rosnode info /rosout
+
+-- Daha fazla bilgi için: http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes
+     
+     
+
+
+
+    

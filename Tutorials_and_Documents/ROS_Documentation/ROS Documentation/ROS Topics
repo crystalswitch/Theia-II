@@ -1,0 +1,48 @@
+--- Bu dosya ROS Topics hakkında bilgiler içermektedir ---
+
+-- ROS Topics nedir?
+Topic'i, nodelerin birbirleriyle iletişime geçmelerine olanak sağlayan bir arabirim gibi düşünebiliriz. Örneğin turtlesim nodelerinde turtle_teleop_key klavye tuslarını publishlerken turtlesim subscribelemektedir. Bu sırada /turtle1/command_velocity topic'i arada bağlantıyı sağlamaktadır.
+
+-- Çalışmakta olan topiclere nasıl bakarız?
+$ rostopic list
+
+-- Published ve subscribed topicslere de:
+$ rostopic list -v     kodu ile daha detaylı ulaşabilirsiniz
+  
+ 
+
+   
+---(alt konu) ROS Messages
+
+--ROS Messages Nedir?
+Messages, bir topic aracılığıyla bir nodeden baska bir nodeye gönderebileceğimiz mesajlardır. Sürekli(-r) veya bir kereliğine gönderilebilir
+
+
+-- Message tipine nasıl bakılır?
+rostopic type [topic] 
+
+Örnek vermek gerekirse:
+rostopic type /turtle1/cmd_vel
+
+Böyle bir kodun sonunda 'geometry_msgs/Twist' olarak dönüt alırsınız. Bu mesajın tipidir. Tip hakında daha fazla bilgi almak isterseniz de
+
+$ rosmsg show [mesaj tipi]
+yani
+$ rosmsg show geometry_msgs/Twist  yazabilirsiniz. Böylece alabileceği inputları da görebilmiş olursunuz.
+
+-- rostopic pub ile mesaj mesaj yollama 
+
+rostopic pub [topic] [msg_type] [args] 
+
+Üstte verdiğimiz kemik yapı sayesinde mesaj yollayabilirsiniz. Örneğin:
+
+$ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+
+Kodunda rostopic pub, mesaj publishlememizi saglayan keyword, -1 mesajın bir kere publishlemesini sağlayan bir simge, /turtle1/cmd_vel mesajı publishleyeceğimiz topic, geometry_msgs/Twist mesaj tipi, '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]' kısım da mesajın aldığı inputlardır.
+-- Eğer mesajımızın sürekli gitmesini istiyorsak?
+$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'     1'in önüne -r getiriniz.
+
+Detaylı bilgi için: http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics
+ROS Message ve Services için: http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv
+ 
+

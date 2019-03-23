@@ -1,0 +1,31 @@
+---Bu dosya ROS paketlerinin ne olduğunu ve nasıl kurulduğunu açıklamaktadır---
+-- ROS paketleri, bir projeye ait nodeları, libraryleri, datasetleri ve bunlar gibi benzeri şeyleri tutabilen klasörlerdir. Birbirinden alakasız taskleri ayırmak için işimize yarayacaktır. 
+
+(Bu dosyada catkin_ws workspacesinden anlatıyor olacağım.)
+
+1) Terminalden catkin_ws workspacesinin altında src klasorüne geliniz.
+
+     $ cd ~/catkin_ws/src
+
+   Bu kod sayesinde paketimizin kurulacagı yere gelmiş oluyoruz. 
+
+2) Paketimizi oluşturmak için alttaki kodu girin:
+
+     $ catkin_create_pkg new_package std_msgs rospy roscpp
+
+   'catkin_create_pkg' kısmı paketi oluşturmamız için gereken keyworddür.
+   'new_package' kısmı pakete isim verdiğimiz kısımdır. Projeyi anlatan ve kısaca açıklayan bir isim olmasına özen gösteriniz.
+   std_msgs, rospy, roscpp: dependencies olarak gecerler. Bunlar first-order dependencies oldukları icin paket oluştururken yazmanız gerekmektedir. Eğer sonradan bir dependency eklemek isterseniz şu linkte anatılanlara bakabilirsiniz: http://docs.ros.org/jade/api/catkin/html/howto/format2/catkin_library_dependencies.html. , Ya da şu link: http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+
+3) En sonunda da workspace'ye gelip catkin_make yapmalıyız
+
+     //Alttaki kod ile catkin_ws(workspace)'ye girdim
+     $ cd ~/catkin_ws
+    
+     //Yaptığımız değişiklikleri gerçekleştiriyoruz
+     $ catkin_make
+
+4) Paketinize girdiğinizde package.xml ve CMakeLists.txt dosyalarını görmelisiniz. 
+
+5) Daha fazla bilgi için: http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+
