@@ -1,0 +1,21 @@
+This document is not completed totally.
+Rviz is the visiulazing tool for move it and it says it is the fastest way.
+The beginning part of move it is n the following link: http://docs.ros.org/kinetic/api/moveit_tutorials/html/doc/getting_started/getting_started.html
+ROS Melodic is less stabil than kinetic so the tutorial is for kinetic
+
+
+
+For modeling an arm we use MoveIt Setup Assistant:
+Make sure you have the Franka description package for Kinetic: sudo apt-get install ros-kinetic-franka-description
+to start assistant the command to use is : roslaunch moveit_setup_assistant setup_assistant.launch
+At this screen there are two options, creating new one or editing a previus one. We should select "new one"
+Then select the Self-Collisions then press the Regenerate Default Collusion Matrix //in here a basic arm shows up then you costumize it how you want but for doing these changes
+Then click on the Planning Groups>Add Group> then add the parts joints etc.
+Robot poses gives us the angles between joints so we can set them
+After all we should add end effector // https://www.youtube.com/watch?v=rfcXZcKZd8A in this link it tells most of the topic 
+at the end we can simulate it on gazebo thus it is able to control with ros control // http://wiki.ros.org/ros_control
+
+
+
+RVIZ:
+Launch the Demo and Configure the Plugin> the command for that is "roslaunch panda_moveit_config demo.launch rviz_tutorial:=true" // this launches the demo then we select the arm we designed
